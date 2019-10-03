@@ -10,12 +10,11 @@
 #include "core/Texture.hpp"
 #include "core/Button.hpp"
 #include "core/Timer.hpp"
+#include "core/Dot.hpp"
+#include "core/consts.hpp"
 
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 TTF_Font* font = NULL;
@@ -109,15 +108,7 @@ int main() {
             //Event handler
             SDL_Event e;
 
-            SDL_Color textColor = { 0, 0, 0, 255 };
-
-            Timer fpsTimer;
-
-            std::stringstream timeText;
-
-            int countedFrames = 0;
-
-            fpsTimer.start();
+            Dot dot = Dot(renderer);
 
             //While application is running
             while(!quit) {
@@ -127,30 +118,19 @@ int main() {
                     if (e.type == SDL_QUIT) {
                         quit = true;
                     }
+
+                    dot.handleEvent(e);
                 }
 
-                float avgFPS = countedFrames / (fpsTimer.getTicks() / 1000.f);
-
-                if (avgFPS > 2000000) {
-                    avgFPS = 0;
-                }
-
-                timeText.str("");
-                timeText << "Average FPS " << roundf(avgFPS * 100) / 100;
-
-                if (!texture.loadFromRenderedText(timeText.str().c_str(), textColor, font)) {
-                    printf("Unable to render FPS texture!\n");
-                }
+                dot.move();
 
                 //Clear screen
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(renderer);
 
-                texture.render((SCREEN_WIDTH - texture.getWidth()) / 2, (SCREEN_HEIGHT - texture.getHeight()) / 2);
+                dot.render();
 
-                //Update screen
                 SDL_RenderPresent(renderer);
-                ++countedFrames;
             }
         }
     }
