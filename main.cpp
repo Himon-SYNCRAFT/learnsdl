@@ -108,7 +108,8 @@ int main() {
             //Event handler
             SDL_Event e;
 
-            Dot dot = Dot(renderer);
+            Dot dot = Dot(renderer, Dot::WIDTH / 2, Dot::HEIGHT / 2);
+            Dot otherDot = Dot(renderer, SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
 
             SDL_Rect wall;
             wall.x = 300;
@@ -128,13 +129,18 @@ int main() {
                     dot.handleEvent(e);
                 }
 
-                dot.move(wall);
+                dot.move(wall, otherDot.getCollider());
 
                 //Clear screen
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(renderer);
 
+                // Render wall
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                SDL_RenderDrawRect(renderer, &wall);
+
                 dot.render();
+                otherDot.render();
 
                 SDL_RenderPresent(renderer);
             }

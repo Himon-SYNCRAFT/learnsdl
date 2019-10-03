@@ -14,20 +14,20 @@
 #include "consts.hpp"
 
 
-Dot::Dot(SDL_Renderer* renderer) {
-    x = 0;
-    y = 0;
+Dot::Dot(SDL_Renderer* renderer, const int startX, const int startY) {
+    x = startX;
+    y = startY;
     velocityX = 0;
     velocityY = 0;
+
+    collider.r = WIDTH / 2;
+    shiftColliders();
 
     texture.setRenderer(renderer);
 
     if (!texture.loadFromFile("assets/dot.bmp")) {
         printf("Failed to load dot texture!\n");
     }
-
-    collider.w = WIDTH;
-    collider.h = HEIGHT;
 }
 
 void Dot::handleEvent(SDL_Event& e) {
@@ -48,19 +48,19 @@ void Dot::handleEvent(SDL_Event& e) {
     }
 }
 
-void Dot::move(SDL_Rect &wall) {
+void Dot::move(const SDL_Rect &rectangle, const Circle &circle) {
     x += velocityX;
-    collider.x = x;
+    y += velocityY;
+    shiftColliders();
 
-    if ((x < 0) || (x + WIDTH > SCREEN_WIDTH) || checkCollision(wall)) {
+    if ((x - collider.r < 0) || (x + collider.r > SCREEN_WIDTH) || checkCollision(rectangle) || checkCollision(circle)) {
         x -= velocityX;
+        shiftColliders();
     }
 
-    y += velocityY;
-    collider.y = y;
-
-    if ((y < 0) || (y + HEIGHT > SCREEN_HEIGHT) || checkCollision(wall)) {
+    if ((y - collider.r < 0) || (y + collider.r > SCREEN_HEIGHT) || checkCollision(rectangle) || checkCollision(circle)) {
         y -= velocityY;
+        shiftColliders();
     }
 }
 
@@ -68,32 +68,55 @@ void Dot::render() {
     texture.render(x, y);
 }
 
+bool Dot::checkCollision(const Circle &other) {
+    int totalRadiusSquared = collider.r + other.r;
+    totalRadiusSquared = totalRadiusSquared * totalRadiusSquared;
+
+    if (distanceSquared(collider.x, collider.y, other.x, other.y) < totalRadiusSquared) {
+        return true;
+    }
+
+    return false;
+}
+
 bool Dot::checkCollision(const SDL_Rect &other) {
-    int leftA = collider.x;
-    int rightA = collider.x + collider.w;
-    int topA = collider.y;
-    int bottomA = collider.y + collider.h;
+    int closestX, closestY;
 
-    int leftB = other.x;
-    int rightB = other.x + other.w;
-    int topB = other.y;
-    int bottomB = other.y + other.h;
-
-    if (bottomA <= topB) {
-        return false;
+    if (collider.x < other.x) {
+        closestX = other.x;
+    } else if (collider.x > other.x + other.w) {
+        closestX = other.x + other.w;
+    } else {
+        closestX = collider.x;
     }
 
-    if (topA >= bottomB) {
-        return false;
+    if (collider.y < other.y) {
+        closestY = other.y;
+    } else if (collider.y > other.y + other.h) {
+        closestY = other.y + other.h;
+    } else {
+        closestY = collider.y;
     }
 
-    if (rightA <= leftB) {
-        return false;
+    if (distanceSquared(collider.x, collider.y, closestX, closestY) < collider.r * collider.r) {
+        return true;
     }
 
-    if (leftA >= rightB) {
-        return false;
-    }
+    return false;
+}
 
-    return true;
+void Dot::shiftColliders() {
+    collider.x = x;
+    collider.y = y;
+}
+
+Circle& Dot::getCollider() {
+    return collider;
+}
+
+double Dot::distanceSquared(int x1, int y1, int x2, int y2) {
+    int deltaX = x2 - x1;
+    int deltaY = y2 - y1;
+
+    return deltaX * deltaX + deltaY * deltaY;
 }
