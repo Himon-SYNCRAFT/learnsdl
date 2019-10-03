@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
+#include <math.h>
+
 #include "core/Texture.hpp"
 #include "core/Button.hpp"
 #include "core/Timer.hpp"
@@ -13,19 +15,11 @@
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
-const int TOTAL_BUTTONS = 4;
-/* const int WALKING_ANIMATION_FRAMES = 4; */
-const int BUTTON_WIDTH = 300;
-const int BUTTON_HEIGTH = 200;
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
-SDL_Rect spriteClips[BUTTON_SPRITE_TOTAL];
-Button buttons[TOTAL_BUTTONS];
 TTF_Font* font = NULL;
 Texture texture;
-Texture pauseTexture;
-Texture startTexture;
 
 
 bool init() {
@@ -79,21 +73,7 @@ bool loadMedia() {
         return false;
     }
 
-    SDL_Color textColor = { 0, 0, 0, 255 };
-
     texture.setRenderer(renderer);
-    pauseTexture.setRenderer(renderer);
-    startTexture.setRenderer(renderer);
-
-    if (!pauseTexture.loadFromRenderedText("Press P to Pause or Unpause the Timer", textColor, font)) {
-        printf("Unable to render pause/unpause prompt texture");
-        return false;
-    }
-
-    if (!startTexture.loadFromRenderedText("Press S to Start or Stop the Timer", textColor, font)) {
-        printf("Unable to render pause/unpause prompt texture");
-        return false;
-    }
 
     return true;
 }
@@ -131,9 +111,13 @@ int main() {
 
             SDL_Color textColor = { 0, 0, 0, 255 };
 
-            Timer timer;
+            Timer fpsTimer;
 
             std::stringstream timeText;
+
+            int countedFrames = 0;
+
+            fpsTimer.start();
 
             //While application is running
             while(!quit) {
@@ -142,40 +126,31 @@ int main() {
                     //User requests quit
                     if (e.type == SDL_QUIT) {
                         quit = true;
-                    } else if (e.type == SDL_KEYDOWN) {
-                        if (e.key.keysym.sym == SDLK_s) {
-                            if (timer.isStarted()) {
-                                timer.stop();
-                            } else {
-                                timer.start();
-                            }
-                        } else if (e.key.keysym.sym == SDLK_p) {
-                            if (timer.isPaused()) {
-                                timer.unpause();
-                            } else {
-                                timer.pause();
-                            }
-                        }
                     }
                 }
 
+                float avgFPS = countedFrames / (fpsTimer.getTicks() / 1000.f);
+
+                if (avgFPS > 2000000) {
+                    avgFPS = 0;
+                }
+
                 timeText.str("");
-                timeText << "Seconds since start time " << (timer.getTicks() / 1000.f);
+                timeText << "Average FPS " << roundf(avgFPS * 100) / 100;
 
                 if (!texture.loadFromRenderedText(timeText.str().c_str(), textColor, font)) {
-                    printf("Unable to render time texture\n");
+                    printf("Unable to render FPS texture!\n");
                 }
 
                 //Clear screen
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(renderer);
 
-                startTexture.render((SCREEN_WIDTH - startTexture.getWidth()) / 2, 0);
-                pauseTexture.render((SCREEN_WIDTH - pauseTexture.getWidth()) / 2, pauseTexture.getHeight());
                 texture.render((SCREEN_WIDTH - texture.getWidth()) / 2, (SCREEN_HEIGHT - texture.getHeight()) / 2);
 
                 //Update screen
                 SDL_RenderPresent(renderer);
+                ++countedFrames;
             }
         }
     }
