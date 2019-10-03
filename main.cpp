@@ -110,6 +110,12 @@ int main() {
 
             Dot dot = Dot(renderer);
 
+            SDL_Rect wall;
+            wall.x = 300;
+            wall.y = 40;
+            wall.w = 40;
+            wall.h = 400;
+
             //While application is running
             while(!quit) {
                 //Handle events on queue
@@ -122,7 +128,7 @@ int main() {
                     dot.handleEvent(e);
                 }
 
-                dot.move();
+                dot.move(wall);
 
                 //Clear screen
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);

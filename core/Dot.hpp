@@ -24,11 +24,14 @@ class Dot {
         Dot(SDL_Renderer* renderer);
 
         void handleEvent(SDL_Event& e);
-        void move();
+        void move(SDL_Rect &wall);
         void render();
+        bool checkCollision(const SDL_Rect &other);
 
     private:
         int x, y;
         int velocityX, velocityY;
+
         Texture texture;
+        SDL_Rect collider;
 };

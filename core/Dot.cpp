@@ -25,6 +25,9 @@ Dot::Dot(SDL_Renderer* renderer) {
     if (!texture.loadFromFile("assets/dot.bmp")) {
         printf("Failed to load dot texture!\n");
     }
+
+    collider.w = WIDTH;
+    collider.h = HEIGHT;
 }
 
 void Dot::handleEvent(SDL_Event& e) {
@@ -45,20 +48,52 @@ void Dot::handleEvent(SDL_Event& e) {
     }
 }
 
-void Dot::move() {
+void Dot::move(SDL_Rect &wall) {
     x += velocityX;
+    collider.x = x;
 
-    if ((x < 0) || (x + WIDTH > SCREEN_WIDTH)) {
+    if ((x < 0) || (x + WIDTH > SCREEN_WIDTH) || checkCollision(wall)) {
         x -= velocityX;
     }
 
     y += velocityY;
+    collider.y = y;
 
-    if ((y < 0) || (y + HEIGHT > SCREEN_HEIGHT)) {
+    if ((y < 0) || (y + HEIGHT > SCREEN_HEIGHT) || checkCollision(wall)) {
         y -= velocityY;
     }
 }
 
 void Dot::render() {
     texture.render(x, y);
+}
+
+bool Dot::checkCollision(const SDL_Rect &other) {
+    int leftA = collider.x;
+    int rightA = collider.x + collider.w;
+    int topA = collider.y;
+    int bottomA = collider.y + collider.h;
+
+    int leftB = other.x;
+    int rightB = other.x + other.w;
+    int topB = other.y;
+    int bottomB = other.y + other.h;
+
+    if (bottomA <= topB) {
+        return false;
+    }
+
+    if (topA >= bottomB) {
+        return false;
+    }
+
+    if (rightA <= leftB) {
+        return false;
+    }
+
+    if (leftA >= rightB) {
+        return false;
+    }
+
+    return true;
 }
