@@ -20,9 +20,6 @@ Dot::Dot(SDL_Renderer* renderer, const int startX, const int startY) {
     velocityX_ = 0;
     velocityY_ = 0;
 
-    collider_.r = WIDTH / 2;
-    shiftColliders();
-
     texture_.setRenderer(renderer);
 
     if (!texture_.loadFromFile("assets/dot.png")) {
@@ -48,78 +45,20 @@ void Dot::handleEvent(SDL_Event& e) {
     }
 }
 
-void Dot::move(const SDL_Rect &rectangle, const Circle &circle) {
+void Dot::move() {
     x_ += velocityX_;
-    shiftColliders();
 
-    if ((x_ - collider_.r < 0) || (x_ + collider_.r > SCREEN_WIDTH) || checkCollision(rectangle) || checkCollision(circle)) {
+    if (x_ < 0 || (x_ + WIDTH > LEVEL_WIDTH)) {
         x_ -= velocityX_;
-        shiftColliders();
     }
 
     y_ += velocityY_;
-    shiftColliders();
 
-    if ((y_ - collider_.r < 0) || (y_ + collider_.r > SCREEN_HEIGHT) || checkCollision(rectangle) || checkCollision(circle)) {
+    if (y_ < 0 || (y_ + HEIGHT > LEVEL_HEIGHT)) {
         y_ -= velocityY_;
-        shiftColliders();
     }
 }
 
-void Dot::render() {
-    texture_.render(x_ - collider_.r, y_ - collider_.r);
-}
-
-bool Dot::checkCollision(const Circle &other) {
-    int totalRadiusSquared = collider_.r + other.r;
-    totalRadiusSquared = totalRadiusSquared * totalRadiusSquared;
-
-    return distanceSquared(collider_.x, collider_.y, other.x, other.y) < totalRadiusSquared;
-}
-
-bool Dot::checkCollision(const SDL_Rect &other) {
-    int closestX, closestY;
-
-    if (collider_.x < other.x) {
-        closestX = other.x;
-    } else if (collider_.x > other.x + other.w) {
-        closestX = other.x + other.w;
-    } else {
-        closestX = collider_.x;
-    }
-
-    if (collider_.y < other.y) {
-        closestY = other.y;
-    } else if (collider_.y > other.y + other.h) {
-        closestY = other.y + other.h;
-    } else {
-        closestY = collider_.y;
-    }
-
-    printf("pos: %d, %d\n", x_, y_);
-    printf("collider: %d, %d\n", collider_.x, collider_.y);
-    printf("closest: %d, %d\n", closestX, closestY);
-    printf("other: %d, %d\n", other.x, other.y);
-
-    double distance = distanceSquared(collider_.x, collider_.y, closestX, closestY);
-
-    printf("distance: %f, r^2: %d\n", distance, collider_.r * collider_.r);
-
-    return  distance < (collider_.r * collider_.r);
-}
-
-void Dot::shiftColliders() {
-    collider_.x = x_;
-    collider_.y = y_;
-}
-
-Circle& Dot::getCollider() {
-    return collider_;
-}
-
-double Dot::distanceSquared(int x1, int y1, int x2, int y2) {
-    int deltaX = x2 - x1;
-    int deltaY = y2 - y1;
-
-    return deltaX * deltaX + deltaY * deltaY;
+void Dot::render(const int camX, const int camY) {
+    texture_.render(x_ - camX, y_ - camY);
 }

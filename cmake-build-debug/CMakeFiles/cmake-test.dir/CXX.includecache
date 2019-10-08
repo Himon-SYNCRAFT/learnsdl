@@ -22,13 +22,23 @@ string
 
 ../includes/consts.h
 
-/home/danzaw/CLionProjects/cm/src/Dot.cpp
+/home/danzaw/CLionProjects/cm/src/main.cpp
 SDL2/SDL.h
 -
-Dot.h
-/home/danzaw/CLionProjects/cm/src/Dot.h
+SDL2/SDL_image.h
+-
+SDL2/SDL_ttf.h
+-
+cstdio
+-
+algorithm
+-
+cassert
+-
 Texture.h
 /home/danzaw/CLionProjects/cm/src/Texture.h
+Dot.h
+/home/danzaw/CLionProjects/cm/src/Dot.h
 consts.h
 /home/danzaw/CLionProjects/cm/src/consts.h
 

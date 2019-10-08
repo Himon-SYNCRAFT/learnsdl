@@ -2,11 +2,12 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <cstdio>
+#include <algorithm>
+#include <cassert>
 
 #include "Texture.h"
 #include "Dot.h"
 #include "consts.h"
-
 
 //Screen dimension constants
 SDL_Window* window = nullptr;
@@ -15,21 +16,32 @@ TTF_Font* font = nullptr;
 Texture texture;
 
 
+int forceBetweenMinAndMax(const int input, const int minValue, const int maxValue) {
+    return std::min(std::max(input, minValue), maxValue);
+}
+
 bool init() {
-    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return false;
     }
 
     //Set texture_ filtering to linear
-    if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) {
-        printf( "Warning: Linear texture_ filtering not enabled!" );
+    if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) {
+        printf("Warning: Linear texture_ filtering not enabled!");
     }
 
-    window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(
+            "SDL Tutorial",
+            SDL_WINDOWPOS_UNDEFINED,
+            SDL_WINDOWPOS_UNDEFINED,
+            SCREEN_WIDTH,
+            SCREEN_HEIGHT,
+            SDL_WINDOW_SHOWN
+    );
 
-    if(window == nullptr) {
-        printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
+    if (window == nullptr) {
+        printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
         return false;
     }
 
@@ -57,7 +69,6 @@ bool init() {
     return true;
 }
 
-
 bool loadMedia() {
     font = TTF_OpenFont("assets/lazy.ttf", 28);
 
@@ -67,6 +78,11 @@ bool loadMedia() {
     }
 
     texture.setRenderer(renderer);
+
+    if (!texture.loadFromFile("assets/bg.png")) {
+        printf("Failed to load background texture\n");
+        return false;
+    }
 
     return true;
 }
@@ -89,7 +105,7 @@ void close() {
 
 int main() {
     //Start up SDL and create window
-    if(!init()) {
+    if (!init()) {
         printf("Failed to initialize!\n");
     } else {
         //Load media
@@ -103,18 +119,12 @@ int main() {
             SDL_Event e;
 
             Dot dot = Dot(renderer, Dot::WIDTH / 2, Dot::HEIGHT / 2);
-            Dot otherDot = Dot(renderer, SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
-
-            SDL_Rect wall;
-            wall.x = 300;
-            wall.y = 40;
-            wall.w = 40;
-            wall.h = 400;
+            SDL_Rect camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 
             //While application is running
-            while(!quit) {
+            while (!quit) {
                 //Handle events on queue
-                while(SDL_PollEvent(&e) != 0) {
+                while (SDL_PollEvent(&e) != 0) {
                     //User requests quit
                     if (e.type == SDL_QUIT) {
                         quit = true;
@@ -123,18 +133,21 @@ int main() {
                     dot.handleEvent(e);
                 }
 
-                dot.move(wall, otherDot.getCollider());
+                dot.move();
+
+                camera.x = (dot.getX() + Dot::WIDTH / 2) - SCREEN_WIDTH / 2;
+                camera.y = (dot.getY() + Dot::HEIGHT / 2) - SCREEN_HEIGHT / 2;
+
+                // blocked moving camera out of level
+                camera.x = forceBetweenMinAndMax(camera.x, 0, LEVEL_WIDTH - camera.w);
+                camera.y = forceBetweenMinAndMax(camera.y, 0, LEVEL_HEIGHT - camera.h);
 
                 //Clear screen
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(renderer);
 
-                // Render wall
-                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                SDL_RenderDrawRect(renderer, &wall);
-
-                otherDot.render();
-                dot.render();
+                texture.render(0, 0, &camera);
+                dot.render(camera.x, camera.y);
 
                 SDL_RenderPresent(renderer);
             }

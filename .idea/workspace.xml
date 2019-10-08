@@ -11,7 +11,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b42d144-3cf2-4ecc-89b8-1c46374c3759" name="Default Changelist" comment="" />
+    <list default="true" id="3b42d144-3cf2-4ecc-89b8-1c46374c3759" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake-test.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake-test.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/assets/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/assets/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake-test" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake-test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Dot.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Dot.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,13 +34,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="SCHEME" value="Project" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RsNn6rxT4KscpuPd0YxoAh20N2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/includes" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -83,7 +97,7 @@
       <workItem from="1570452009904" duration="4749000" />
       <workItem from="1570517732011" duration="2347000" />
       <workItem from="1570520089229" duration="2721000" />
-      <workItem from="1570523503970" duration="7647000" />
+      <workItem from="1570523503970" duration="12937000" />
     </task>
     <servers />
   </component>
@@ -107,33 +121,37 @@
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
     <state x="743" y="281" width="426" height="479" key="FileChooserDialogImpl/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570454869211" />
-    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1570530692413">
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1570537139212">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
-    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1570530692413">
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570537139212" />
+    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1570537139212">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
-    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1570530692413">
+    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570537139212" />
+    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1570537139212">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
-    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1570530692413">
+    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570537139212" />
+    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1570537139212">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
-    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor" timestamp="1570526473554">
+    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570537139212" />
+    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor" timestamp="1570534568554">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570526473554" />
+    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570534568554" />
     <state x="644" y="351" key="com.intellij.ide.util.TipDialog" timestamp="1570523530671">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
     <state x="644" y="351" key="com.intellij.ide.util.TipDialog/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570523530671" />
-    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1570521724996">
+    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1570536870985">
       <screen x="0" y="0" width="1920" height="1047" />
     </state>
-    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570521724996" />
+    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570536870985" />
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1570533216838">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570533216838" />
   </component>
 </project>
