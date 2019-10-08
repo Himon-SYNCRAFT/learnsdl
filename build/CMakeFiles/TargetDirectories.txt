@@ -1,0 +1,3 @@
+/home/danzaw/CLionProjects/cm/build/CMakeFiles/rebuild_cache.dir
+/home/danzaw/CLionProjects/cm/build/CMakeFiles/edit_cache.dir
+/home/danzaw/CLionProjects/cm/build/CMakeFiles/cmake-test.dir

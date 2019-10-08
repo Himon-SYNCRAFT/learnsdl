@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Wextra -pedantic-errors -g   CMakeFiles/cmake-test.dir/src/Button.cpp.o CMakeFiles/cmake-test.dir/src/Dot.cpp.o CMakeFiles/cmake-test.dir/src/Texture.cpp.o CMakeFiles/cmake-test.dir/src/Timer.cpp.o CMakeFiles/cmake-test.dir/src/main.cpp.o  -o cmake-test -lSDL2 -lSDL2_image -lSDL2 -lSDL2_ttf -lSDL2 -lSDL2_image -lSDL2_ttf 

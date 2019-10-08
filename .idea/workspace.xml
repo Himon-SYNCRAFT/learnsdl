@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="cmake-test" targetName="cmake-test" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b42d144-3cf2-4ecc-89b8-1c46374c3759" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+    <option name="clangWarnings" value="-Wno-unused-variable,-Werror=implicit-function-declaration,-Wshadow,-Wno-shadow-field-in-constructor-modified,-Wno-shadow-ivar, -Wall, -Wpedantic" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileTemplateManagerImpl">
+    <option name="SCHEME" value="Project" />
+  </component>
+  <component name="ProjectId" id="1RsNn6rxT4KscpuPd0YxoAh20N2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/includes" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/includes" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="cmake-test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cmake-test" TARGET_NAME="cmake-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cmake-test" RUN_TARGET_NAME="cmake-test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b42d144-3cf2-4ecc-89b8-1c46374c3759" name="Default Changelist" comment="" />
+      <created>1570452007604</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570452007604</updated>
+      <workItem from="1570452009904" duration="4749000" />
+      <workItem from="1570517732011" duration="2347000" />
+      <workItem from="1570520089229" duration="2721000" />
+      <workItem from="1570523503970" duration="7647000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="555" y="185" width="802" height="672" key="#New_File_Extensions" timestamp="1570453906347">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="555" y="185" width="802" height="672" key="#New_File_Extensions/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570453906347" />
+    <state x="656" y="276" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1570520626938">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="656" y="276" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570520626938" />
+    <state x="693" y="273" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1570520491281">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="693" y="273" width="526" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570520491281" />
+    <state x="743" y="281" width="426" height="479" key="FileChooserDialogImpl" timestamp="1570454869211">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="743" y="281" width="426" height="479" key="FileChooserDialogImpl/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570454869211" />
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom" timestamp="1570530692413">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
+    <state width="1876" height="279" key="GridCell.Tab.0.center" timestamp="1570530692413">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
+    <state width="1876" height="279" key="GridCell.Tab.0.left" timestamp="1570530692413">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
+    <state width="1876" height="279" key="GridCell.Tab.0.right" timestamp="1570530692413">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570530692413" />
+    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor" timestamp="1570526473554">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="0" y="0" width="1920" height="1047" key="SettingsEditor/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570526473554" />
+    <state x="644" y="351" key="com.intellij.ide.util.TipDialog" timestamp="1570523530671">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="644" y="351" key="com.intellij.ide.util.TipDialog/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570523530671" />
+    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1570521724996">
+      <screen x="0" y="0" width="1920" height="1047" />
+    </state>
+    <state x="746" y="206" width="419" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1047/1920.0.1920.1080@0.0.1920.1047" timestamp="1570521724996" />
+  </component>
+</project>

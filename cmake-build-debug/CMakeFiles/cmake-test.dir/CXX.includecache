@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/Dot.h
+SDL2/SDL.h
+-
+Texture.h
+../includes/Texture.h
+
+../includes/Texture.h
+SDL2/SDL.h
+-
+SDL2/SDL_ttf.h
+-
+string
+-
+
+../includes/consts.h
+
+/home/danzaw/CLionProjects/cm/src/Dot.cpp
+SDL2/SDL.h
+-
+Dot.h
+/home/danzaw/CLionProjects/cm/src/Dot.h
+Texture.h
+/home/danzaw/CLionProjects/cm/src/Texture.h
+consts.h
+/home/danzaw/CLionProjects/cm/src/consts.h
+
